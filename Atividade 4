@@ -1,0 +1,41 @@
+@startuml
+class Funcionário {
+  +Nome : String
+  +Código: Int
+  +Cargo: String
+Consulta Contato ()
+Consulta RegistroPessoal()
+}
+
+class Contato {
+  +Telefone : String
+  +Endereço: String
+}
+
+class RegistroPessoal {
+  +Codigo de imposto : Int
+  +Histórico de empregado: List
+  +Salário: Float
+}
+
+class Departamento {
+  +Nome : String
+  +Localização: String
+}
+
+class Escritório {
+  +Tipo : String
+}
+
+class Cadastro {
+  +Telefone : Int
+  +Endereço : String
+Cadastrar ()
+}
+
+Cadastro --- Escritório 
+Escritório "0..*" --- "1..*" Departamento
+Funcionário "1..*" --- "0..*" Departamento 
+Funcionário "0..*" --- "1..*" Contato 
+RegistroPessoal "1..*" ---  "0..*" Funcionário
+@enduml
